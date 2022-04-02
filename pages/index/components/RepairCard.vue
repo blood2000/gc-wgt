@@ -1,6 +1,6 @@
 <!-- 维修记录组件 -->
 <template>
-  <div class="card-box">
+  <div class="card-box" @click="jumpToDeatail">
     <div class="card-header" :class="'status' + cardData.repairStatus">
       <div class="card-header-title">
         <div class="card-header-title-left">
@@ -67,21 +67,21 @@
       </div>
       <div class="card-main-btn-box" v-show="status !== 4">
         <!-- 等待批准 -->
-        <div class="card-main-btn" v-if="status === 0" @click="changeStatus(3)">
+        <div class="card-main-btn" v-if="status === 0" @click.stop="changeStatus(3)">
           <div class="btn-refuse card-main-btn-icon"></div>
           <div>拒绝</div>
         </div>
-        <div class="card-main-btn" v-if="status === 0" @click="changeStatus(4)">
+        <div class="card-main-btn" v-if="status === 0" @click.stop="changeStatus(4)">
           <div class="btn-agree card-main-btn-icon"></div>
           <div>批准</div>
         </div>
         <!-- 已批准 -->
-        <div class="card-main-btn" v-if="status === 3" @click="changeStatus(5)">
+        <div class="card-main-btn" v-if="status === 3" @click.stop="changeStatus(5)">
           <div class="btn-reimburse card-main-btn-icon"></div>
           <div>报销</div>
         </div>
         <!-- 取消 -->
-        <div class="card-main-btn" v-if="status === 1 || status === 2" @click="deleteRecord">
+        <div class="card-main-btn" v-if="status === 1 || status === 2" @click.stop="deleteRecord">
           <div class="btn-delete card-main-btn-icon"></div>
           <div>删除</div>
         </div>
@@ -117,6 +117,11 @@ export default {
   components: {},
 
   computed: {
+    jumpToDeatail(){
+      uni.navigateTo({
+         url: '/pages/detail/index?code='+this.cardData.code
+      });
+    },
     repairDate() {
       if (this.cardData.repairEndDate) {
         return (

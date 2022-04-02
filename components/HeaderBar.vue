@@ -3,7 +3,10 @@
   <div>
     <view
       class="status-bar"
-      :style="{ height: statusBarHeight * 2 + 'rpx', background: barStyle.background}"
+      :style="{
+        height: statusBarHeight * 2 + 'rpx',
+        background: barStyle.background,
+      }"
     ></view>
     <uni-nav-bar
       v-if="showBar"
@@ -32,37 +35,36 @@ export default {
       type: String,
       default: "",
     },
-		border: {
-			type: Boolean,
-			default: true
-		},
-		showBar: {
-			type: Boolean,
-			default: true
-		},
-		fixed: {
-			type: Boolean,
-			default: false
-		},
-		showNavIcon: {
-			type: Boolean,
-			default: false
-		},
+    border: {
+      type: Boolean,
+      default: true,
+    },
+    showBar: {
+      type: Boolean,
+      default: true,
+    },
+    fixed: {
+      type: Boolean,
+      default: false,
+    },
+    showNavIcon: {
+      type: Boolean,
+      default: false,
+    },
     rightText: {
       type: String,
-      default: '',
+      default: "",
     },
     barStyle: {
       type: Object,
       default() {
         return {
-          color: '#333333',
-          background: '#ffffff'
+          color: "#333333",
+          background: "#ffffff",
         };
       },
     },
   },
- 
 
   computed: {
     ...mapState({
@@ -70,7 +72,7 @@ export default {
       // statusBarHeight: (state) => state.header.statusBarHeight,
     }),
     statusBarHeight() {
-      return this.headerInfo.statusBarHeight
+      return this.headerInfo.statusBarHeight;
     },
   },
   methods: {
@@ -78,24 +80,27 @@ export default {
       this.$emit("back");
     },
     jump() {
-      this.$emit('jump');
+      this.$emit("jump");
     },
     handleRight() {
-      this.$emit('handleRight');
+      this.$emit("handleRight");
     },
   },
 };
 </script>
 <style lang='scss' scoped>
-// .status-bar {
-//   background: transparent;
-// }
+/deep/ .uni-navbar__header-container-inner {
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333333;
+}
 .nav-right {
   position: absolute;
   top: 50%;
   right: 20rpx;
   font-size: 24rpx;
-  color: #3A65FF;
+  color: #3a65ff;
   transform: translateY(-50%);
 }
 .nav-right-icon {

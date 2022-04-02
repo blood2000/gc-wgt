@@ -62,7 +62,6 @@ import HeaderBar from "../../components/HeaderBar.vue";
 import RepairCard from "./components/RepairCard.vue";
 import StatusModal from "./components/StatusModal.vue";
 // import format from "../../utils/format.js";
-import mockData from "./config/config";
 export default {
   mixins: [ZPagingMixin], // 使用mixin
   data() {
