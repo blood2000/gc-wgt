@@ -98,9 +98,9 @@
           <view class="remark">
             <view class="remark-label">备注</view>
             <view class="remark-value double-text-overflow">
-                车子有问题好几年了车子有问题好
-几年了车子有问题好几年了车子有问题好几年了车子有问题好
-几年了车子有问题好几年了
+              车子有问题好几年了车子有问题好
+              几年了车子有问题好几年了车子有问题好几年了车子有问题好
+              几年了车子有问题好几年了
             </view>
           </view>
         </view>
@@ -328,9 +328,8 @@ export default {};
         color: #8c93aa;
         margin-right: 125rpx;
       }
-      &-value{
-          flex: 1;
-          
+      &-value {
+        flex: 1;
       }
     }
   }
